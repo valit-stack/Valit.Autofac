@@ -10,7 +10,8 @@ namespace Valit.Autofac
             var assembly = Assembly.GetCallingAssembly();
             builder.RegisterAssemblyTypes(assembly)
                 .AsClosedTypesOf(typeof(IValitator<>))
-                .AsImplementedInterfaces();
+                .AsImplementedInterfaces()
+                .SingleInstance();
             return builder;
         }
     }
