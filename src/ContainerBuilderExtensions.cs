@@ -8,10 +8,12 @@ namespace Valit.Autofac
         public static ContainerBuilder RegisterValit(this ContainerBuilder builder)
         {
             var assembly = Assembly.GetCallingAssembly();
+
             builder.RegisterAssemblyTypes(assembly)
                 .AsClosedTypesOf(typeof(IValitator<>))
                 .AsImplementedInterfaces()
                 .SingleInstance();
+
             return builder;
         }
     }
